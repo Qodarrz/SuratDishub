@@ -1,8 +1,11 @@
 {
     "version": 2,
-      "framework": null,
+    "framework": null,
+    "outputDirectory": "public",
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.7.4" }
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.4"
+        }
     },
     "routes": [
         {
@@ -18,23 +21,19 @@
         "APP_DEBUG": "true",
         "APP_URL": "https://surat-dishub.vercel.app",
         "APP_KEY": "base64:7OAp/xlDsOiK6JGWw9nGbdeRrttsSEgRz5Bu7R2JPdY=",
- 
         "DB_CONNECTION": "mysql",
         "DB_HOST": "bzlt6dwo42rsmh2lpxwk-mysql.services.clever-cloud.com",
         "DB_PORT": "3306",
         "DB_DATABASE": "bzlt6dwo42rsmh2lpxwk",
         "DB_USERNAME": "uqfcu4aakvgyodhb",
         "DB_PASSWORD": "QMXdbwm2OWtKcxOGwiMN",
-        
         "CLOUDINARY_URL": "cloudinary://559315249766179:me4PfUce2RS82xMEjmF3J4ar7Bc@dv4ko22bm",
-
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
         "APP_ROUTES_CACHE": "/tmp/routes.php",
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
- 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie"

@@ -100,14 +100,15 @@ $publicId = $uploadedFile['public_id'];
             'unit_kerja_id' => $validated['unit_kerja_id'],
         ];
         if ($request->hasFile('file_pdf')) {
+            $cloudinary = new Cloudinary();
 
             if ($standar_teknis->cloudinary_public_id) {
-                Cloudinary::destroy($standar_teknis->cloudinary_public_id, [
+                $cloudinary->uploadApi()->destroy($standar_teknis->cloudinary_public_id, [
                     'resource_type' => 'raw'
                 ]);
             }
 
-            $uploadedFile = Cloudinary::upload(
+            $uploadedFile = $cloudinary->uploadApi()->upload(
                 $request->file('file_pdf')->getRealPath(),
                 [
                     'folder' => 'standar-teknis',
@@ -115,8 +116,8 @@ $publicId = $uploadedFile['public_id'];
                 ]
             );
 
-            $data['file_path'] = $uploadedFile->getSecurePath();
-            $data['cloudinary_public_id'] = $uploadedFile->getPublicId();
+            $data['file_path'] = $uploadedFile['secure_url'];
+            $data['cloudinary_public_id'] = $uploadedFile['public_id'];
         }
 
         $standar_teknis->update($data);
@@ -127,7 +128,8 @@ $publicId = $uploadedFile['public_id'];
     public function destroy(StandarTeknis $standar_teknis)
     {
         if ($standar_teknis->cloudinary_public_id) {
-            Cloudinary::destroy($standar_teknis->cloudinary_public_id, [
+            $cloudinary = new Cloudinary();
+            $cloudinary->uploadApi()->destroy($standar_teknis->cloudinary_public_id, [
                 'resource_type' => 'raw'
             ]);
         }

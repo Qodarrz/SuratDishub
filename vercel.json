@@ -7,12 +7,11 @@
     },
     "routes": [
         {
-            "src": "/(build|css|js|images|vendors)/(.*)",
-            "dest": "/$1/$2"
+            "src": "^/(index\\.php)?$",
+            "dest": "/api/index.php"
         },
         {
-            "src": "/(favicon\\.ico|robots\\.txt)",
-            "dest": "/$1"
+            "handle": "filesystem"
         },
         {
             "src": "/(.*)",

@@ -46,7 +46,6 @@ class SuratKeluarController extends Controller
 
         $suratKeluar = SuratKeluar::create($validated);
 
-        // Update status surat masuk menjadi selesai
         if ($validated['surat_masuk_id']) {
             SuratMasuk::find($validated['surat_masuk_id'])->update(['status' => 'selesai']);
         }

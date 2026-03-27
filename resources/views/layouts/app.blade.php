@@ -96,6 +96,9 @@
                             @elseif(request()->routeIs('profile.*'))
                                 <h2 class="text-lg font-bold text-gray-900">Profile</h2>
                                 <p class="text-xs text-gray-500">Kelola informasi akun dan pengaturan profil Anda.</p>
+                            @elseif(request()->routeIs('pencarian.*'))
+                                <h2 class="text-lg font-bold text-gray-900">Pencarian Global</h2>
+                                <p class="text-xs text-gray-500">Hasil pencarian di seluruh dokumen.</p>
                             @else
                                 <h2 class="text-lg font-bold text-gray-900">Admin Panel</h2>
                                 <p class="text-xs text-gray-500">Selamat datang di Admin Panel.</p>
@@ -173,9 +176,23 @@
                             @endif
 
                             @unless(request()->routeIs('dashboard'))
-                                <div class="relative">
-                                    <input type="text" name="q" placeholder="Cari no / tanggal / perihal" class="w-60 rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-                                </div>
+                                @php
+                                    $searchAction = route('pencarian.index');
+                                    $searchPlaceholder = 'Cari global...';
+                                    if (request()->routeIs('surat-masuk.*')) {
+                                        $searchAction = route('surat-masuk.index');
+                                        $searchPlaceholder = 'Cari di Surat Masuk...';
+                                    } elseif (request()->routeIs('surat-keluar.*')) {
+                                        $searchAction = route('surat-keluar.index');
+                                        $searchPlaceholder = 'Cari di Surat Keluar...';
+                                    } elseif (request()->routeIs('standar-teknis.*')) {
+                                        $searchAction = route('standar-teknis.index');
+                                        $searchPlaceholder = 'Cari di Standar Teknis...';
+                                    }
+                                @endphp
+                                <form action="{{ $searchAction }}" method="GET" class="relative">
+                                    <input type="text" name="q" value="{{ request('q') }}" placeholder="{{ $searchPlaceholder }}" class="w-64 rounded-full border border-gray-300 px-4 py-2 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all" />
+                                </form>
                             @endunless
                         </div>
                     </div>

@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="flex items-center justify-end mt-4">
-				<form action="{{ route('surat-masuk.search') }}" method="GET" class="flex items-center gap-2" onsubmit="return handleSearch(event)">
+				<form action="{{ route('pencarian.index') }}" method="GET" class="flex items-center gap-2" onsubmit="return handleSearch(event)">
 					<input type="text" name="q" id="searchInput" placeholder="Cari nomor surat..." 
 						class="px-4 py-2 rounded-full border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent w-64"
 						value="{{ request('q') }}">
@@ -261,7 +261,7 @@
 				console.log('Search value:', searchValue); // Debug
 				
 				if (searchValue && searchValue.trim()) {
-					const url = `{{ route('surat-masuk.search') }}?q=${encodeURIComponent(searchValue.trim())}`;
+					const url = `{{ route('pencarian.index') }}?q=${encodeURIComponent(searchValue.trim())}`;
 					console.log('Redirecting to:', url); // Debug
 					window.location.href = url;
 				} else {
@@ -300,7 +300,7 @@
 					console.log('Performing search for:', searchValue);
 					
 					if (searchValue) {
-						const url = `{{ route('surat-masuk.search') }}?q=${encodeURIComponent(searchValue)}`;
+						const url = `{{ route('pencarian.index') }}?q=${encodeURIComponent(searchValue)}`;
 						console.log('Going to:', url);
 						window.location.href = url;
 					} else {

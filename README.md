@@ -1,59 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <h1>📬 Sistem Informasi Manajemen Surat Dishub</h1>
+  <p>Aplikasi modern berbasis web untuk mengelola dan mengarsipkan persuratan di lingkungan Dinas Perhubungan.</p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  <!-- Badges -->
+  <p>
+    <img alt="Laravel" src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" />
+    <img alt="TailwindCSS" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+    <img alt="Alpine.js" src="https://img.shields.io/badge/Alpine.js-8BC0D0?style=for-the-badge&logo=alpine.js&logoColor=white" />
+    <img alt="Cloudinary" src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=Cloudinary&logoColor=white" />
+    <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  </p>
+</div>
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📖 Tentang Aplikasi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Sistem Informasi Manajemen Surat (SIMS)** dikembangkan untuk memfasilitasi kebutuhan administrasi surat-menyurat di instansi pemerintahan (khususnya Dinas Perhubungan). Aplikasi ini dirancang agar pencatatan, pencarian, serta penyimpanan dokumen digital bisa dilakukan secara cepat, terintegrasi, dan mudah diakses dari mana saja.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨ Fitur Utama
 
-## Learning Laravel
+- 📥 **Manajemen Surat Masuk** – Mendata surat yang diterima lengkap dengan lampiran digital.
+- 📤 **Manajemen Surat Keluar** – Menata arsip surat yang diterbitkan instansi ke pihak luar.
+- 📋 **Standar Teknis** – Pengelolaan dokumen standar operasional dan teknis (SOP/Juknis).
+- 🔍 **Pencarian Global Terpadu** – Mencari dokumen dengan cepat di seluruh kategori (Surat Masuk, Keluar, dan Standar Teknis) hanya dari satu halaman `/pencarian`.
+- ☁️ **Penyimpanan Cloud** – Terintegrasi secara langsung dengan **Cloudinary** untuk memastikan file dan gambar aman disematkan di layanan cloud dan menghemat *storage* lokal.
+- 🚀 **Siap Deploy di Serverless** – Konfigurasi penuh yang disesuaikan agar aplikasi dapat berjalan mulus di **Vercel** (`vercel.json` included).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🛠️ Teknologi yang Digunakan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Kategori | Teknologi |
+| :--- | :--- |
+| **Backend Framework** | Laravel 12.x (PHP 8.2+) |
+| **Frontend Styling** | Tailwind CSS v3 |
+| **Frontend Interactions** | Alpine.js |
+| **Database** | MySQL / PostgreSQL |
+| **Cloud Storage** | Cloudinary SDK (`cloudinary-labs/cloudinary-laravel`) |
+| **Deployment** | Vercel Serverless Functions |
 
-## Laravel Sponsors
+## 🚀 Panduan Instalasi Lokal
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Ikuti langkah-langkah di bawah ini untuk menjalankan project di lokal mesin Anda.
 
-### Premium Partners
+### Prasyarat Asisten
+Pastikan Anda memiliki hal berikut ter-install di komputer:
+* [PHP >= 8.2](https://www.php.net/downloads)
+* [Composer](https://getcomposer.org/)
+* [Node.js & NPM](https://nodejs.org/)
+* Akun [Cloudinary](https://cloudinary.com) untuk koneksi API Storage.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Langkah-langkah Lengkap
 
-## Contributing
+1. **Clone repository ini**
+   ```bash
+   git clone <url-repo-anda>
+   cd surat_dishub
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Install dependensi PHP via Composer**
+   ```bash
+   composer install
+   ```
 
-## Code of Conduct
+3. **Install dependensi Node.js**
+   ```bash
+   npm install
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Kopi file environment (.env)**
+   ```bash
+   cp .env.example .env
+   ```
 
-## Security Vulnerabilities
+5. **Generate App Key**
+   ```bash
+   php artisan key:generate
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **Atur Database & Konfigurasi Cloudinary di `.env`**
+   ```env
+   DB_CONNECTION=mysql # Atau sesuai db anda
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=surat_dishub
+   DB_USERNAME=root
+   DB_PASSWORD=
 
-## License
+   # Pengaturan Cloudinary
+   CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7. **Jalankan Migrasi Database dan Seeder**
+   ```bash
+   php artisan migrate --seed
+   ```
+
+8. **Kompilasi aset frontend (Vite)**
+   ```bash
+   npm run build
+   # Untuk development mode, jalankan npm run dev
+   ```
+
+9. **Jalankan server lokal Laravel**
+   ```bash
+   php artisan serve
+   ```
+   Aplikasi sekarang dapat diakses secara lokal di `http://127.0.0.1:8000`. 🎉
+
+## 🌍 Cara Deploy ke Vercel
+
+Projek ini telah secara khusus disesuaikan supaya *deploy-friendly* di Vercel:
+1. Hubungkan repo github ini ke akun Vercel Anda.
+2. Di Vercel, *Framework Preset* biasanya akan otomatis terbaca `Laravel`. Pastikan Root Directory berada di `./` (default).
+3. Tambahkan semua konfigurasi environment di *Environment Variables* Vercel (terutama kredensial *database remote* dan *Cloudinary URL*).
+4. Klik **Deploy** dan biarkan file `vercel.json` dan `api/index.php` (otomatis atau bawaan dari setup) menjalankan sisanya. Semua asset statis akan di-*serve* dengan benar sesuai aturan `vercel.json`.
+
+---
+
+<div align="center">
+  Dibuat dengan ❤️ untuk efisiensi birokrasi dan administrasi persuratan.
+</div>

@@ -6,6 +6,7 @@ use App\Models\StandarTeknis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Cloudinary\Cloudinary;
+use Illuminate\Support\Str;
 
 class StandarTeknisController extends Controller
 
@@ -45,21 +46,25 @@ class StandarTeknisController extends Controller
             'perihal' => 'required|string',
             'keterangan' => 'nullable|string',
             'unit_kerja_id' => 'nullable|string|max:255',
-            'file_pdf' => 'required|file|mimes:pdf|max:4096',
+            'file_pdf' => 'required|file|mimes:pdf,png,jpg,jpeg,doc,docx,xls,xlsx|max:4096',
         ]);
 
-$cloudinary = new Cloudinary();
+        $file = $request->file('file_pdf');
+        $extension = $file->getClientOriginalExtension();
+        $publicIdRequest = 'standar-teknis/' . Str::slug($validated['no_surat']) . '_' . uniqid() . '.' . $extension;
 
-$uploadedFile = $cloudinary->uploadApi()->upload(
-    $request->file('file_pdf')->getRealPath(),
-    [
-        'folder' => 'standar-teknis',
-        'resource_type' => 'raw'
-    ]
-);
+        $cloudinary = new Cloudinary();
+        $uploadedFile = $cloudinary->uploadApi()->upload(
+            $file->getRealPath(),
+            [
+                'folder' => 'standar-teknis',
+                'resource_type' => 'raw',
+                'public_id' => $publicIdRequest
+            ]
+        );
 
-$path = $uploadedFile['secure_url'];
-$publicId = $uploadedFile['public_id'];
+        $path = $uploadedFile['secure_url'];
+        $publicIdFinal = $uploadedFile['public_id'];
 
         StandarTeknis::create([
             'no_surat' => $validated['no_surat'],
@@ -68,7 +73,7 @@ $publicId = $uploadedFile['public_id'];
             'keterangan' => $validated['keterangan'] ?? null,
             'unit_kerja_id' => $validated['unit_kerja_id'],
             'file_path' => $path,
-            'cloudinary_public_id' => $publicId,
+            'cloudinary_public_id' => $publicIdFinal,
         ]);
 
         return redirect()->route('standar-teknis.index')->with('status', 'Standar teknis berhasil ditambahkan.');
@@ -89,7 +94,7 @@ $publicId = $uploadedFile['public_id'];
             'perihal' => 'required|string',
             'keterangan' => 'nullable|string',
             'unit_kerja_id' => 'nullable|string|max:255',
-            'file_pdf' => 'nullable|file|mimes:pdf|max:4096',
+            'file_pdf' => 'nullable|file|mimes:pdf,png,jpg,jpeg,doc,docx,xls,xlsx|max:4096',
         ]);
 
         $data = [
@@ -108,11 +113,16 @@ $publicId = $uploadedFile['public_id'];
                 ]);
             }
 
+            $file = $request->file('file_pdf');
+            $extension = $file->getClientOriginalExtension();
+            $publicId = 'standar-teknis/' . Str::slug($validated['no_surat']) . '_' . uniqid() . '.' . $extension;
+
             $uploadedFile = $cloudinary->uploadApi()->upload(
-                $request->file('file_pdf')->getRealPath(),
+                $file->getRealPath(),
                 [
                     'folder' => 'standar-teknis',
-                    'resource_type' => 'raw'
+                    'resource_type' => 'raw',
+                    'public_id' => $publicId
                 ]
             );
 
@@ -145,6 +155,26 @@ $publicId = $uploadedFile['public_id'];
             abort(404);
         }
 
-        return redirect()->away($standar_teknis->file_path);
+        $extension = pathinfo($standar_teknis->file_path, PATHINFO_EXTENSION) ?: 'pdf';
+        $fileName = Str::slug($standar_teknis->perihal) . '.' . $extension;
+
+        $mimeTypes = [
+            'pdf' => 'application/pdf',
+            'png' => 'image/png',
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'xls' => 'application/vnd.ms-excel',
+            'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        ];
+
+        $contentType = $mimeTypes[strtolower($extension)] ?? 'application/octet-stream';
+
+        return response()->streamDownload(function () use ($standar_teknis) {
+            echo file_get_contents($standar_teknis->file_path);
+        }, $fileName, [
+            'Content-Type' => $contentType,
+        ]);
     }
 }

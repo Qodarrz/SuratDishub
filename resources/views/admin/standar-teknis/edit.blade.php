@@ -58,12 +58,12 @@
 					</div>
 
 					<div class="space-y-1">
-						<label for="file_pdf" class="block text-sm font-medium text-gray-700">File PDF (opsional)</label>
-						<input type="file" name="file_pdf" id="file_pdf" accept="application/pdf" class="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
+						<label for="file_pdf" class="block text-sm font-medium text-gray-700">File Dokumen / Gambar (opsional)</label>
+						<input type="file" name="file_pdf" id="file_pdf" accept="application/pdf,image/*,.doc,.docx,.xls,.xlsx" class="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
 						@if($standarTeknis->file_path)
-							<p class="text-xs text-gray-400 mt-1">File saat ini: <a href="{{ asset('storage/'.$standarTeknis->file_path) }}" target="_blank" class="text-indigo-600 hover:text-indigo-700">Lihat PDF</a></p>
+							<p class="text-xs text-gray-400 mt-1">File saat ini: <a href="{{ route('standar-teknis.file', $standarTeknis) }}" target="_blank" class="text-indigo-600 hover:text-indigo-700">Lihat File</a></p>
 						@endif
-						<p class="text-xs text-gray-400">Jika tidak diubah, biarkan kosong.</p>
+						<p class="text-xs text-gray-400">Jika tidak diubah, biarkan kosong. Format: PDF, PNG, JPG, Word, Excel.</p>
 					</div>
 
 					<div class="flex items-center justify-end gap-3 pt-3">

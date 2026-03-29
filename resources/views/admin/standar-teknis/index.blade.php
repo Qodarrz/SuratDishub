@@ -3,7 +3,7 @@
 		<div class="flex items-center justify-between">
 			<div>
 				<h2 class="font-semibold text-xl text-gray-800 leading-tight">Standar Teknis</h2>
-				<p class="text-sm text-gray-500">Daftar dokumen standar teknis dalam bentuk PDF.</p>
+				<p class="text-sm text-gray-500">Daftar dokumen / standar teknis (PDF, Gambar, dll).</p>
 			</div>
 			<div class="flex items-center gap-2">
 				<a href="{{ route('standar-teknis.create') }}"
@@ -78,7 +78,7 @@
 									Keterangan</th>
 								<th
 									class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-									File PDF</th>
+									File</th>
 								<th
 									class="px-4 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">
 									Aksi</th>

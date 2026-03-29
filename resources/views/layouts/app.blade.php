@@ -105,18 +105,6 @@
                             @endif
                         </div>
                         <div class="flex items-center justify-end gap-4">
-                            <a href="{{ route('surat-masuk.index') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500 text-white text-sm font-medium shadow hover:bg-sky-600">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 19a2 2 0 11-4 0" />
-                                </svg>
-                                <span>Notifikasi Surat Masuk</span>
-                                @if(($newIncomingCount ?? 0) > 0)
-                                    <span class="ml-1 inline-flex items-center justify-center min-w-[1.5rem] px-1 text-xs font-semibold rounded-full bg-white text-sky-700">
-                                        {{ $newIncomingCount ?? 0 }}
-                                    </span>
-                                @endif
-                            </a>
 
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">

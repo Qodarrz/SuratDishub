@@ -3,7 +3,7 @@
 		<div class="flex items-center justify-between">
 			<div>
 				<h2 class="font-semibold text-xl text-gray-800 leading-tight">Tambah Standar Teknis</h2>
-				<p class="text-sm text-gray-500">Unggah dokumen standar teknis dalam bentuk PDF.</p>
+				<p class="text-sm text-gray-500">Unggah dokumen standar teknis (PDF, Gambar, Word, atau Excel).</p>
 			</div>
 			<a href="{{ route('standar-teknis.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-sm font-medium rounded-lg shadow-sm hover:bg-gray-50">
 				<svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,9 +53,9 @@
 
 
 				<div class="space-y-1">
-					<label for="file_pdf" class="block text-sm font-medium text-gray-700">File PDF</label>
-					<input type="file" name="file_pdf" id="file_pdf" accept="application/pdf" class="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required />
-					<p class="text-xs text-gray-400">Format yang diperbolehkan: PDF, maksimal 4 MB.</p>
+					<label for="file_pdf" class="block text-sm font-medium text-gray-700">File Dokumen / Gambar</label>
+					<input type="file" name="file_pdf" id="file_pdf" accept="application/pdf,image/*,.doc,.docx,.xls,.xlsx" class="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required />
+					<p class="text-xs text-gray-400">Format: PDF, PNG, JPG, Word, Excel. Maksimal 4 MB.</p>
 				</div>
 
 			<div class="space-y-1">

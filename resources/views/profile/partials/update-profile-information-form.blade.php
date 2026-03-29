@@ -1,6 +1,6 @@
     <div class="flex items-center space-x-3 mb-8">
-        <div class="p-2 bg-indigo-50 rounded-xl ring-2 ring-indigo-100">
-            <svg class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="p-2 bg-blue-50 rounded-xl ring-2 ring-blue-100">
+            <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 014 0v1m-4 0a2 2 0 014 0v1" />
             </svg>
         </div>
@@ -38,7 +38,7 @@
                     <p class="text-sm mt-2 text-gray-800">
                         {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="flex items-center gap-6 pt-4">
-            <x-primary-button class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-100 transform active:scale-95 transition-all">
+            <x-primary-button class="px-8 py-3 bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-100 transform active:scale-95 transition-all">
                 {{ __('Simpan Perubahan') }}
             </x-primary-button>
 

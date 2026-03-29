@@ -29,7 +29,7 @@
                         </div>
                         <div>
                             <div class="text-sm font-semibold text-slate-900">Admin Panel</div>
-                            <div class="text-xs text-slate-500">Surat Dishub</div>
+                            <div class="text-xs text-slate-500">Sistarsip</div>
                         </div>
                     </a>
                 </div>

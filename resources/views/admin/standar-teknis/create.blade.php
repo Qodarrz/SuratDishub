@@ -55,7 +55,7 @@
 				<div class="space-y-1">
 					<label for="file_pdf" class="block text-sm font-medium text-gray-700">File Dokumen / Gambar</label>
 					<input type="file" name="file_pdf" id="file_pdf" accept="application/pdf,image/*,.doc,.docx,.xls,.xlsx" class="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required />
-					<p class="text-xs text-gray-400">Format: PDF, PNG, JPG, Word, Excel. Maksimal 4 MB.</p>
+					<p class="text-xs text-gray-400">Format: PDF, PNG, JPG, Word, Excel. Maksimal 2 MB.</p>
 				</div>
 
 			<div class="space-y-1">
@@ -89,4 +89,14 @@
 			</div>
 		</div>
 	</div>
+@push('scripts')
+<script>
+    document.getElementById('file_pdf').addEventListener('change', function() {
+        if (this.files[0] && this.files[0].size > 2048 * 1024) {
+            alert('Ukuran file terlalu besar! Maksimal 2 MB.');
+            this.value = '';
+        }
+    });
+</script>
+@endpush
 </x-app-layout>

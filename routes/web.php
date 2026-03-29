@@ -63,7 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/pencarian', [App\Http\Controllers\PencarianController::class, 'index'])->name('pencarian.index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('surat-masuk', SuratMasukController::class)->except(['show']);
     Route::get('surat-masuk/search', [SuratMasukController::class, 'search'])->name('surat-masuk.search');

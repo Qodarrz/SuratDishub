@@ -46,7 +46,7 @@ class StandarTeknisController extends Controller
             'perihal' => 'required|string',
             'keterangan' => 'nullable|string',
             'unit_kerja_id' => 'nullable|string|max:255',
-            'file_pdf' => 'required|file|mimes:pdf,png,jpg,jpeg,doc,docx,xls,xlsx|max:4096',
+            'file_pdf' => 'required|file|mimes:pdf,png,jpg,jpeg,doc,docx,xls,xlsx|max:2048',
         ]);
 
         $file = $request->file('file_pdf');
@@ -94,7 +94,7 @@ class StandarTeknisController extends Controller
             'perihal' => 'required|string',
             'keterangan' => 'nullable|string',
             'unit_kerja_id' => 'nullable|string|max:255',
-            'file_pdf' => 'nullable|file|mimes:pdf,png,jpg,jpeg,doc,docx,xls,xlsx|max:4096',
+            'file_pdf' => 'nullable|file|mimes:pdf,png,jpg,jpeg,doc,docx,xls,xlsx|max:2048',
         ]);
 
         $data = [

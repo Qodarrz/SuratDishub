@@ -63,7 +63,7 @@
 						@if($standarTeknis->file_path)
 							<p class="text-xs text-gray-400 mt-1">File saat ini: <a href="{{ route('standar-teknis.file', $standarTeknis) }}" target="_blank" class="text-indigo-600 hover:text-indigo-700">Lihat File</a></p>
 						@endif
-						<p class="text-xs text-gray-400">Jika tidak diubah, biarkan kosong. Format: PDF, PNG, JPG, Word, Excel.</p>
+						<p class="text-xs text-gray-400">Jika tidak diubah, biarkan kosong. Format: PDF, PNG, JPG, Word, Excel. Maksimal 2 MB.</p>
 					</div>
 
 					<div class="flex items-center justify-end gap-3 pt-3">
@@ -81,4 +81,14 @@
 			</div>
 		</div>
 	</div>
+@push('scripts')
+<script>
+    document.getElementById('file_pdf').addEventListener('change', function() {
+        if (this.files[0] && this.files[0].size > 2048 * 1024) {
+            alert('Ukuran file terlalu besar! Maksimal 2 MB.');
+            this.value = '';
+        }
+    });
+</script>
+@endpush
 </x-app-layout>

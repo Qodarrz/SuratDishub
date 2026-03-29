@@ -23,9 +23,9 @@
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-3xl border border-gray-100 p-8 transform transition-all duration-300 hover:shadow-2xl">
                         <div class="flex flex-col items-center text-center">
                             <div class="relative group">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                <div class="absolute rounded-full"></div>
                                 <div class="relative h-24 w-24 bg-gray-100 rounded-full flex items-center justify-center border-4 border-white shadow-inner overflow-hidden">
-                                     <span class="text-3xl font-bold bg-clip-text text-transparent uppercase">
+                                     <span class="text-3xl font-bold bg-clip-text text-purple-200 text-transparent uppercase">
                                         {{ substr($user->name, 0, 1) }}
                                      </span>
                                 </div>
@@ -55,9 +55,13 @@
                             Pusat Bantuan
                          </h4>
                          <p class="relative text-sm text-indigo-100 mb-4 font-medium leading-relaxed">Butuh bantuan terkait akun Anda? Tim dukungan kami siap membantu setiap saat.</p>
-                         <button class="relative w-full py-2 bg-white text-indigo-600 text-sm font-bold rounded-xl shadow-md transform transition-all duration-200 hover:scale-105 hover:bg-indigo-50">
-                            Hubungi Support
-                         </button>
+                         <form action="https://wa.link/fvvqun" target="_blank">
+  <button
+    type="submit"
+    class="w-full py-2 bg-white text-indigo-600 text-sm font-bold rounded-xl shadow-md transform transition-all duration-200 hover:scale-105 hover:bg-indigo-50">
+    Hubungi Support
+  </button>
+</form>
                     </div>
                 </div>
 

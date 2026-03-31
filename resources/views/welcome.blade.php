@@ -1589,7 +1589,6 @@
             <div
                 class="bg-[#fff2f2] dark:bg-[#1D0002] replace-svg relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg lg:aspect-auto w-full lg:w-[55%] shrink-0 overflow-hidden">
                 <style>
-                    /* hide default SVG artwork inside this panel so we can show a custom card */
                     .replace-svg svg {
                         display: none;
                     }
